@@ -1,0 +1,17 @@
+@use '@carbon/react' with (
+  $font-path: '@ibm/plex'
+);
+
+@use '@carbon/ibm-products/css/index';
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

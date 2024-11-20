@@ -1,0 +1,69 @@
+@use '@carbon/react/scss/spacing' as *;
+
+.step-container {
+  width: 50%;
+  min-width: 320px;
+}
+
+.my-custom-action-set {
+  display: grid;
+  grid-auto-rows: minmax(auto, auto);
+  grid-template-columns: repeat(6, 1fr);
+}
+
+.step-action-button {
+  width: 100%;
+}
+
+.step-action-button__cancel {
+  grid-column: span 4;
+}
+
+.cds--tile-group div {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.custom-intro-tile {
+  width: 280px;
+  height: 240px;
+  margin-right: $spacing-05;
+}
+
+.selected-intro-option {
+  padding-bottom: $spacing-06;
+  text-transform: capitalize;
+}
+
+.step-form-items {
+  display: flex;
+  container-type: size;
+
+  #city {
+    margin-right: $spacing-06;
+  }
+}
+
+.c4p--tearsheet__content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: $spacing-06 $spacing-06 0 $spacing-06;
+}
+
+.c4p--step-actions__button-container.my-custom-action-set {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  max-height: 120px;
+  margin-top: auto;
+
+  button {
+    max-width: none;
+  }
+}
+
+.c4p--tearsheet__influencer {
+  padding: 1.5rem 2rem;
+}
