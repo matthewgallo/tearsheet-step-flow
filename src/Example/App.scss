@@ -69,9 +69,15 @@
 
   button {
     max-width: none;
+    width: 100%;
   }
 }
 
 .c4p--tearsheet__influencer {
   padding: 1.5rem 2rem;
+}
+
+.c4p--tearsheet .c4p--tearsheet__influencer + .c4p--tearsheet__right .c4p--step-actions__button-container.my-custom-action-set {
+  left: 257px;
+  width: calc(100% - 257px);
 }

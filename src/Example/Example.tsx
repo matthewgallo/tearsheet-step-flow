@@ -1,12 +1,18 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { CodeSnippet, TextInput, ProgressIndicator, ProgressStep, Button, TileGroup, RadioTile } from '@carbon/react';
 import { StepActions, StepGroup, useStepContext } from './StepFlow';
 import './App.scss'
-import { useEffect } from 'react';
 import { StepTearsheet } from './StepTearsheet';
 import { StepState } from './StepFlow/StepActions';
 
 const introExample = true;
+
+const useStepFocus = (stepPrimaryFocus: string) => {
+  useEffect(() => {
+    const stepFocusElement = document?.querySelector(stepPrimaryFocus) as HTMLElement;
+    stepFocusElement?.focus();
+  }, [stepPrimaryFocus]);
+};
 
 function Step1() {
   const { setFormState, formState } = useStepContext();
@@ -32,6 +38,7 @@ function Step1() {
 function Step2() {
   const { setFormState, formState } = useStepContext();
   const { city, state } = formState || {};
+  useStepFocus('#city');
   return (
     <div className="step-container">
       <h4>Step 2</h4>
@@ -124,15 +131,13 @@ const PlusOnly = () => <>This step only renders for plus flows.</>;
 export const Example = () => {
   const ref = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useState(false);
-  const [beenOpen, setBeenOpen] = useState(false);
   const [showIntro, setShowIntro] = useState(true);
   const [selectedFlow, setSelectedFlow] = useState('standard');
 
-  useEffect(() => setBeenOpen(beenOpen || open), [open, beenOpen]);
-
   const handleNextDisabledState = (formState: {
     email?: string,
-    city?: string
+    city?: string,
+    state?: string,
   }, currentStep: number) => {
     if (showIntro) {
       return false;
@@ -140,7 +145,7 @@ export const Example = () => {
     if (!formState?.email && currentStep === 1) {
       return true;
     }
-    if (!formState?.city && currentStep === 2) {
+    if ((!formState?.city || !formState?.state) && currentStep === 2) {
       return true;
     }
     return false;
