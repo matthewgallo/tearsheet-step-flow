@@ -1,4 +1,12 @@
+@use '@carbon/ibm-products/css/index';
 @use '@carbon/react/scss/spacing' as *;
+
+#root {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .step-container {
   width: 50%;

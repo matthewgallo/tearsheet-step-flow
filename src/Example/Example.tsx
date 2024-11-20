@@ -121,7 +121,7 @@ const buildCustomInfluencer = (
 
 const PlusOnly = () => <>This step only renders for plus flows.</>;
 
-function App() {
+export const Example = () => {
   const ref = useRef<HTMLDivElement>(null);
   const [open, setOpen] = useState(false);
   const [beenOpen, setBeenOpen] = useState(false);
@@ -292,5 +292,3 @@ function App() {
     </div>
   );
 }
-
-export default App
